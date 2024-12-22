@@ -5,9 +5,9 @@ services:
       - "5432:5432"
     container_name: postgres
     environment:
-      POSTGRESS_USER: myuser
-      POSTGRESS_PASSWORD: mypassword
-      POSTGRESS_DB: mydb
+      POSTGRESS_USER: process.env.POSTGRESS_USER
+      POSTGRESS_PASSWORD: process.env.POSTGRESS_PASSWORD
+      POSTGRESS_DB: process.env.POSTGRESS_DB
     volumes:
       - postgres-data:/var/lib/postgresql/data
 volumes:
