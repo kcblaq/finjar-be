@@ -1,0 +1,20 @@
+model Jars {
+    id        String   @id @default(cuid())
+    name      String
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    owner     User     @relation(fields: [ownerId], references: [id])
+    ownerId   String
+    items     Item[]
+}
+
+
+model Item {
+    id        String   @id @default(cuid())
+    name      String
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    jar       Jars     @relation(fields: [jarId], references: [id])
+    amount   Int
+    jarId     String
+}
